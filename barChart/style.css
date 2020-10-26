@@ -1,0 +1,31 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #829DBA;
+
+}
+
+svg{
+    background-color: white;
+    /* visibility: visible; */
+    box-shadow: 5px 5px 20px  black;
+}
+
+.bar{
+    fill: #33adff;
+}
+.bar:hover { fill: pink; }
+
+#tooltip{
+    width: 150px;
+    height: 30px;
+    background-color: burlywood;
+    text-align: center;
+    padding:6px;
+    position: absolute;
+    opacity: 0.8;
+    pointer-events: none;
+    
+}

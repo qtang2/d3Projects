@@ -16,6 +16,7 @@ let padding = 40
 
 let svg = d3.select('svg')
 
+console.log(svg)
 let drawCanvas = () =>{
     svg.attr("width",width).attr("height",height)    
 }
@@ -36,8 +37,8 @@ let genetateScales = ()=>{
 }
 
 let drawBars = ()=>{
-    let tooltip = d3.select('body').append("div").attr("id","tooltip").style("visibility","hidden").style("width","auto").style("height","auto").style("background-color","orange")
-
+    let tooltip = d3.select('body').append("div").attr("id","tooltip").style("visibility","hidden")
+   
     svg.selectAll("rect")
     .data(values)
     .enter()
@@ -49,10 +50,20 @@ let drawBars = ()=>{
     .attr('height', item => heightScale(item[1]))
     .attr('x',(item, i) =>xScale(i))
     .attr('y',item => height-padding - heightScale(item[1]))
-    .on("mouseover", (d,i) => {
-        tooltip.transition().style("visibility","visible")
-        tooltip.text(i[0])
+    .on("mouseover", (item,i) => {
+       
+        // console.log(item ) //which outputs an MouseEvent 
+        // console.log(i ) // which outputs and array contains two items like ["2015-01-01", 17649.3]
+        console.log(item.pageX)
+        tooltip.transition()
+        .style("visibility","visible")
+        .style("left",(item.pageX+10)+"px")
+        .style("top",(item.pageY+10)+"px")
+        .duration(200)
+
+        tooltip.text("Year: "+i[0]+"\n"+ "GDP: "+ i[1])
         document.querySelector('#tooltip').setAttribute('data-date',i[0])
+        
     })
     .on("mouseout", (d,i) =>{
         tooltip.transition().style("visibility","hidden")
