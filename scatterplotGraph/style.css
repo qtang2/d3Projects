@@ -3,11 +3,12 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aquamarine;
+    background-color: #829DBA;
 }
 
 svg{
-    background-color: pink;
+    background-color: white;
+    box-shadow: 5px 5px 20px  black;
 }
 
 #legend{
@@ -26,7 +27,7 @@ svg{
 #tooltip{
     position: absolute;
     width: 150px;
-    height: 30px;
+    height: auto;
     background-color: burlywood;
     text-align: center;
     padding:6px;

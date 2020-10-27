@@ -49,14 +49,14 @@ let drawScatterplot = () =>{
         .attr('data-yvalue', item => new Date(item.Seconds*1000))
         .attr("fill",item => color(item.URL!==''))
         .on("mouseover", (evt,d) =>{
-            console.log(d)
+            console.log(typeof d.Name)
             tooltip.transition()
                     .style('visibility','visible')
                     .style('left',(evt.pageX+10)+"px")
                     .style('top',evt.pageY + "px")
                     .duration(200)
                     .attr('data-year', d.Year);
-            tooltip.text(d.Name + ": "+ d.Nationality+"\n" + "Year: "+ d.Year + " Time: " + d.Time+ (d.Doping ? ("\n \n"+ d.Doping) :''))
+            tooltip.text(d.Name + ": "+ d.Nationality+" \n" + ", Year: "+ d.Year + " Time: " + d.Time+ (d.Doping ? (" , Doping: \n \n"+ d.Doping) :''))
             // tooltip.text("Year: "+d.Year+"\n"+ "GDP: "+ d.Seconds)
         })
         .on("mouseout", () =>{
