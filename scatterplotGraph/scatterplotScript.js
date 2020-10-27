@@ -12,7 +12,8 @@ let xScale, yScale, xAxisScale, yAxisScale
 let width = 800
 let height = 600
 let padding = 40
-
+//this is a scale that will map different color
+//d3.scaleOrdinal([[domain, ]range]) 
 let color = d3.scaleOrdinal([true,false],d3.schemeCategory10); 
 let svg = d3.select('svg')
 
@@ -29,7 +30,11 @@ let generateScales = () =>{
 }
 
 let drawScatterplot = () =>{
-    // let tooltip = d3.select('body').append('div').attr('id','legend').style('visibility','hidden')
+    let tooltip = d3
+                    .select('body')
+                    .append('div')
+                    .attr('id','tooltip')
+                    .style('visibility','hidden')
 
 
     svg.selectAll('circle')
@@ -43,6 +48,20 @@ let drawScatterplot = () =>{
         .attr('data-xvalue', item => item.Year)
         .attr('data-yvalue', item => new Date(item.Seconds*1000))
         .attr("fill",item => color(item.URL!==''))
+        .on("mouseover", (evt,d) =>{
+            console.log(d)
+            tooltip.transition()
+                    .style('visibility','visible')
+                    .style('left',(evt.pageX+10)+"px")
+                    .style('top',evt.pageY + "px")
+                    .duration(200)
+                    .attr('data-year', d.Year);
+            tooltip.text(d.Name + ": "+ d.Nationality+"\n" + "Year: "+ d.Year + " Time: " + d.Time+ (d.Doping ? ("\n \n"+ d.Doping) :''))
+            // tooltip.text("Year: "+d.Year+"\n"+ "GDP: "+ d.Seconds)
+        })
+        .on("mouseout", () =>{
+            tooltip.transition().style("visibility","hidden")
+        })
 }
 
 let generateAxes = () =>{
@@ -55,11 +74,8 @@ let generateAxes = () =>{
 
 
 let generateLegend = () =>{
-    //this is a scale that will map different color
-    //d3.scaleOrdinal([[domain, ]range]) 
     
-
-    let legendContainer = svg.append('g').attr('id', 'legend');
+  let legendContainer = svg.append('g').attr('id', 'legend');
     let legend = legendContainer
     .selectAll("#legend")
     .data(color.domain())//the domain is empty because it did not set yet

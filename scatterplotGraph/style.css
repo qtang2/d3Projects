@@ -15,3 +15,21 @@ svg{
     height: 50px;
     background-color: tomato;
 }
+
+#title{
+    font-size: 25px
+}
+#subtitle{
+    font-size:18px
+}
+
+#tooltip{
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    background-color: burlywood;
+    text-align: center;
+    padding:6px;
+    opacity: 0.8;
+    pointer-events: none;
+}
