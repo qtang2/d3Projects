@@ -79,6 +79,8 @@ let generateAxes = ()=>{
      svg.append("g").attr("id","y-axis").attr("transform", 'translate('+padding+ ',0)').call(yAxis)
 }
 
+
+
 req.open("GET", url, true)
 req.onload = ()=>{
     
@@ -89,5 +91,6 @@ req.onload = ()=>{
     genetateScales()
     drawBars()
     generateAxes()
+    
 }
 req.send()
