@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heat Map</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <!--This is wrong to place link before script <link ref="stylesheet" href="./style.css" >
+    <script src="https://d3js.org/d3.v6.min.js"></script> -->
+    
+</head>
+<body>
+    <h1 id="title">Monthly Global Land-Surface Temperature</h1>
+    <h3 id="description">1753 - 2015: base temperature 8.66℃</h3>
+    <svg id="canvas">
+    </svg>
+    <svg id="legend" width=200>
+        <g>
+            <rect fill="steelBlue" width=30 height =30 x=0></rect>
+            <text x=33 y=20>Variance of -1 or less</text>
+        </g>
+        <g>
+            <rect fill="lightSteelBlue" width=30 height =30 x=0 y=30></rect>
+            <text x=33 y=50>On or below average</text>
+        </g>
+        <g>
+            <rect fill="orange" width=30 height =30 x=0 y=60></rect>
+            <text x=33 y=80>Above average</text>
+        </g>
+        <g>
+            <rect fill="crimson" width=30 height =30 x=0 y = 90></rect>
+            <text x=33 y=110>Vatiance of +1 or more</text>
+        </g>
+        
+       
+        
+    </svg>
+</body>
+<script defer src="heatMap.js"></script>
+<!-- <script defer src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>  -->
+</html>

@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #829DBA;
+}
+#canvas{
+    background-color: pink;
+    min-width:1200px;
+    min-height: 600px;
+    box-shadow: 5px 5px 20px  black;
+}
+#legend{
+    margin-top: 20px;
+}
+
+#tooltip{
+    position: absolute;
+    width: 150px;
+    height: auto;
+    background-color: burlywood;
+    text-align: center;
+    padding:6px;
+    opacity: 0.8;
+    pointer-events: none;
+}
