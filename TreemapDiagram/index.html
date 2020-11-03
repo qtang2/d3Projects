@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleSheet" href = "./style.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <title>Tree Map Diagram</title>
+    
+</head>
+<body>
+    <h1 id='title'>Highest crossiong moviews</h1>
+    <p id='description'>Top 95 highest movies</p>
+    <svg id="canvas">
+
+    </svg>
+    <svg id='legend'>
+        <g>
+            <rect class='legend-item' fill="orange" width=30 height =30 x=0></rect>
+            <text x=33 y=20>Action</text>
+        </g>
+        <g>
+            <rect class='legend-item' fill="lightGreen" width=30 height =30 x=0 y=30></rect>
+            <text x=33 y=50>Drama</text>
+        </g>
+        <g>
+            <rect class='legend-item' fill="coral" width=30 height =30 x=0 y=60></rect>
+            <text x=33 y=80>Adventure</text>
+        </g>
+        <g>
+            <rect class='legend-item' fill="lightBlue" width=30 height =30 x=0 y = 90></rect>
+            <text x=33 y=110>Family</text>
+        </g>
+        <g>
+            <rect class='legend-item' fill="pink" width=30 height =30 x=160 y = 0></rect>
+            <text x=193 y=20>Animation</text>
+        </g>
+        <g>
+            <rect class='legend-item' fill="khaki" width=30 height =30 x=160 y = 30></rect>
+            <text x=193 y=50>Comedy</text>
+        </g>
+        <g>
+            <rect class='legend-item' fill="tan" width=30 height =30 x=160 y = 60></rect>
+            <text x=193 y=80>Biology</text>
+        </g>
+        
+    </svg>
+</body>
+    <script defer src="treemap.js"></script>
+    <script defer src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</html>

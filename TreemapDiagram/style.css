@@ -11,9 +11,18 @@ body{
 
 }
 
-/* svg{
-    background-color: white;
-} */
+svg{
+    background-color: #829DBA;
+}
+
+#canvas text{
+    font-size: 12px;
+}
+
+#legend{
+    margin-top: 20px;
+}
+
 
 #canvas{
     min-width: 1000px;
